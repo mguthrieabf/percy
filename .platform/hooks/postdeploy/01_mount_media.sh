@@ -56,8 +56,6 @@ echo 'EFS mount complete.'
 # instances. There is no access to the directories from elsewhere
 # and the data is not critical so oepn to everyone.
 echo 'Setting Permissions'
-chmod 777 /cobalt-media/django-summernote/
-chmod 777 /cobalt-media/health_check_storage_test/
-chmod 777 /cobalt-media/pic_folder/
+chmod 777 /cobalt-media/*
 
 exit 0
