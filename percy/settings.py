@@ -25,7 +25,7 @@ SECRET_KEY = 'dglzr5)twk+(v$bryg&7euvuupfjv_=##1x0%jlf)m2vp11#hp'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['percy-test.eba-6rgy3wk4.ap-southeast-2.elasticbeanstalk.com']
 
 
 # Application definition
