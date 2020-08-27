@@ -16,7 +16,7 @@ else
     service rpcidmapd stop
     if [ $? -ne 0 ] ; then
         echo 'ERROR: Failed to stop NFS ID Mapper!'
-        exit 1
+        exit 0
     fi
 fi
 
@@ -26,7 +26,7 @@ if [ ! -d ${EFS_MOUNT_DIR} ]; then
     mkdir -p ${EFS_MOUNT_DIR}
     if [ $? -ne 0 ]; then
         echo 'ERROR: Directory creation failed!'
-        exit 1
+        exit 0
     fi
 else
     echo "Directory ${EFS_MOUNT_DIR} already exists!"
@@ -38,13 +38,13 @@ if [ $? -ne 0 ]; then
     mount -t efs -o tls ${EFS_FILE_SYSTEM_ID}:/ ${EFS_MOUNT_DIR}
     if [ $? -ne 0 ] ; then
         echo 'ERROR: Mount command failed!'
-        exit 1
+        exit 0
     fi
     chmod 777 ${EFS_MOUNT_DIR}
     runuser -l  ec2-user -c "touch ${EFS_MOUNT_DIR}/it_works"
     if [[ $? -ne 0 ]]; then
         echo 'ERROR: Permission Error!'
-        exit 1
+        exit 0
     else
         runuser -l  ec2-user -c "rm -f ${EFS_MOUNT_DIR}/it_works"
     fi
