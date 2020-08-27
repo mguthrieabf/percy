@@ -1,8 +1,6 @@
 #!/bin/bash
 
-yum -y install amazon-efs-utils
-
-# Ugly way to get env variables.
+# Get env variables.
 EFS_MOUNT_DIR=`cat /opt/elasticbeanstalk/deployment/env | grep MOUNT_DIRECTORY | tr "=" " " | awk '{print $2}'`
 EFS_FILE_SYSTEM_ID=`cat /opt/elasticbeanstalk/deployment/env | grep FILE_SYSTEM_ID | tr "=" " " | awk '{print $2}'`
 
