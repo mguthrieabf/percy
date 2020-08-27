@@ -42,9 +42,9 @@ echo Logs live in /var/log
 echo
 PS3='Select a log file: '
 options=("cfn-init.log (install file)" "cfn-init-cmd.log (install file details)" "web.stdout.log (print and errors from app)" "nginx/access.log (web access log)" "nginx/error.log (web error log)" "Quit")
-select opt in "${options[@]}"
+select opt in "\${options[@]}"
 do
-    case $opt in
+    case \$opt in
         "cfn-init.log (install file)")
             tail -100f /var/log/cfn-init.log
             break
