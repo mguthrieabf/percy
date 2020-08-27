@@ -1,3 +1,3 @@
 #!/bin/bash
 
-echo mgtest
+cp /opt/elasticbeanstalk/deployment/env /tmp/prebuild.env
