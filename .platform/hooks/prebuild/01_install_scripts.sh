@@ -4,6 +4,9 @@
 # Install utility scripts #
 ###########################
 
+cp /home/ec2-user/.bashrc /home/ec2-user/.bashrc.old
+cp /home/ec2-user/.bashrc.old
+
 # ec2-user bash login script
 cat << EOF > /home/ec2-user/.bashrc
 #!/bin/bash
