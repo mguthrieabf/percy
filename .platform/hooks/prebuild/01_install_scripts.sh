@@ -4,12 +4,15 @@
 # Install utility scripts #
 ###########################
 
-cp /home/ec2-user/.bashrc /home/ec2-user/.bashrc.old
-cp /home/ec2-user/.bashrc.old
+cp /root/.bashrc /root/.bashrc.old
 
 # ec2-user bash login script
 cat << EOF > /home/ec2-user/.bashrc
 #!/bin/bash
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+	. /etc/bashrc
+fi
 # Pretty much everything requires root so su immediately
 alias x='exit'
 sudo -s
@@ -24,7 +27,7 @@ alias x='exit'
 # activate virtualenv
 . /var/app/venv/staging-LQM1lest/bin/activate
 
-# set environment variable
+# set environment variables
 `cat /opt/elasticbeanstalk/deployment/env | awk '{print "export",$1}'`
 
 # change to app directory
@@ -82,7 +85,7 @@ cat << EOF > /usr/local/bin/h
 echo
 echo files
 echo /opt/elasticbeanstalk/deploy/env - environment vars
-echo /etc/nginx                       - nginx config
+echo /etc/nginx     \t\t\t                  - nginx config
 echo
 echo Commands
 echo nginx -t                         - test config
